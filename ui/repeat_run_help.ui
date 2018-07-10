@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>repeathelpDialog</class>
+ <widget class="QDialog" name="repeathelpDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>522</width>
+    <height>412</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>20</y>
+     <width>411</width>
+     <height>261</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;规则说明&lt;/p&gt;&lt;p&gt;1.首先在重复次数里面输入次数，输入必须为正整数。&lt;/p&gt;&lt;p&gt;2.输出次数后点击“确定”，&lt;/p&gt;&lt;p&gt;3.之后会在左边的显示框中输出编号以及相应的排队时间&lt;/p&gt;&lt;p&gt;4.同时在下方的输出框中会显示最后一次的运行结果&lt;/p&gt;&lt;p&gt;5.点击“重置”，可重复实验&lt;/p&gt;&lt;p&gt;6.点击“完成”，退出软件&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="verity">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>300</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

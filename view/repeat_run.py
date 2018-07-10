@@ -8,7 +8,10 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_RepeatRun(object):
+
+class Ui_RepeatRun(QtWidgets.QDialog):
+    def __init__(self):
+        super(Ui_RepeatRun, self).__init__()
 
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -103,7 +106,7 @@ class Ui_RepeatRun(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_last_result.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignJustify|QtCore.Qt.AlignVCenter)
+        item.setTextAlignment(QtCore.Qt.AlignJustify | QtCore.Qt.AlignVCenter)
         self.tableWidget_last_result.setHorizontalHeaderItem(4, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_last_result.setHorizontalHeaderItem(5, item)
@@ -181,4 +184,3 @@ class Ui_RepeatRun(object):
         item.setText(_translate("Dialog", "客户在系统花费时间"))
         item = self.tableWidget_last_result.horizontalHeaderItem(8)
         item.setText(_translate("Dialog", "空闲时间"))
-

@@ -20,19 +20,6 @@ class Model:
         self.sys_util = 0
         pass
 
-    def reset(self):
-        self.arrive_time = []
-        self.interval_time = []
-        self.serve_time = []
-        self.serve_start_time = []
-        self.wait_time = []
-        self.serve_end_time = []
-        self.spend_time = []
-        self.sys_free_time = []
-        self.avg_wait_time = 0
-        self.sys_util = 0
-        pass
-
     def data_gen(self, num, max, min, probabilities):
         # 下面是生成到达时间的随机值
         tmp = True
@@ -120,6 +107,18 @@ class Model:
                 return False
             total_prob = total_prob + every_prob
         return total_prob == 1
+
+    def reset(self):
+        self.arrive_time = []
+        self.interval_time = []
+        self.serve_time = []
+        self.serve_start_time = []
+        self.wait_time = []
+        self.serve_end_time = []
+        self.spend_time = []
+        self.sys_free_time = []
+        self.avg_wait_time = 0
+        self.sys_util = 0
 
     def connect_db(self):
         config = {'host': '127.0.0.1',

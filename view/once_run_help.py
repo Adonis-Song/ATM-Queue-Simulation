@@ -24,7 +24,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "帮助"))
         self.label.setText(_translate("Dialog", "<html><head/><body><p>点击“运行一次”开始运行，并在显示框中显示相应的数据</p><p>点击“清除数据缓存”，所有数据清空</p><p><br/></p></body></html>"))
         self.verifty.setText(_translate("Dialog", "确定"))
 
