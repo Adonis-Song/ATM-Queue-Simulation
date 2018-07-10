@@ -4,10 +4,11 @@ import random
 
 import numpy as np
 
-
 class Model:
-
     def __init__(self):
+        '''
+        初始化变量
+        '''
         self.arrive_time = []
         self.interval_time = []
         self.serve_time = []
@@ -18,9 +19,16 @@ class Model:
         self.sys_free_time = []
         self.avg_wait_time = 0
         self.sys_util = 0
-        pass
 
     def data_gen(self, num, max, min, probabilities):
+        '''
+        根据相应的数据，生成到达时间的随机值和服务时间的随机值
+        :param num: 人数
+        :param max: 间隔时间最大值
+        :param min: 间隔时间最小值
+        :param probabilities: 服务时间的概率
+        :return:
+        '''
         # 下面是生成到达时间的随机值
         tmp = True
         y = []
@@ -33,10 +41,8 @@ class Model:
             y = y + time_list
             if len(y) >= num:
                 tmp = False
-
         if len(y) > num:
             y = y[:num]
-
         y.sort()
         self.arrive_time = y
 
@@ -89,6 +95,10 @@ class Model:
         self.sys_util = serve_time / all_time  # 系统利用率 = 系统服务总时间 / 系统总运行时间
 
     def data_pool(self):
+        '''
+        返回所有数据
+        :return:
+        '''
         return [self.interval_time, self.arrive_time,
                 self.serve_time, self.serve_start_time,
                 self.wait_time, self.serve_end_time,
@@ -109,6 +119,10 @@ class Model:
         return total_prob == 1
 
     def reset(self):
+        '''
+        重置，将所有值清0
+        :return:
+        '''
         self.arrive_time = []
         self.interval_time = []
         self.serve_time = []
@@ -229,27 +243,3 @@ class Model:
         conn.close()
         cursor.close()
         pass
-
-
-if __name__ == '__main__':
-    """
-    This is test code
-    """
-    """
-    model = Model()
-    model.create_table()
-    service = {
-        'client_id' : 1,
-        'arrive_time' : 1,
-        'interval_time' : 1,
-        'serve_time' : 1,
-        'serve_start_time' : 1,
-        'wait_time' : 1,
-        'serve_end_time' : 1,
-        'spend_time' : 1,
-        'sys_free_time' : 1,
-        'avg_wait_time' : 1,
-        'sys_util' : 1
-    }
-    model.insert_service(service)
-    """

@@ -9,4 +9,8 @@ class Oncehelp(Ui_Dialog):
         self.verifty.clicked.connect(self.verifty_f)
 
     def verifty_f(self):
+        '''
+        退出此界面
+        :return:
+        '''
         self.Dialog.close()

@@ -2,20 +2,18 @@
 
 # Form implementation generated from reading ui file 'once_run.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import sys
 
-
-class Ui_OnceRun(QtWidgets.QDialog):
+class Ui_once_run(object):
     def setupUi(self, once_run):
         once_run.setObjectName("once_run")
-        once_run.resize(943, 482)
+        once_run.resize(1065, 482)
         self.once_run_table = QtWidgets.QTableWidget(once_run)
-        self.once_run_table.setGeometry(QtCore.QRect(10, 10, 922, 400))
+        self.once_run_table.setGeometry(QtCore.QRect(10, 10, 1041, 400))
         self.once_run_table.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.once_run_table.setObjectName("once_run_table")
         self.once_run_table.setColumnCount(9)
@@ -41,18 +39,18 @@ class Ui_OnceRun(QtWidgets.QDialog):
         item = QtWidgets.QTableWidgetItem()
         self.once_run_table.setHorizontalHeaderItem(8, item)
         self.avg_lb = QtWidgets.QLabel(once_run)
-        self.avg_lb.setGeometry(QtCore.QRect(20, 440, 81, 21))
+        self.avg_lb.setGeometry(QtCore.QRect(30, 440, 111, 21))
         self.avg_lb.setObjectName("avg_lb")
         self.avg_txt = QtWidgets.QTextBrowser(once_run)
-        self.avg_txt.setGeometry(QtCore.QRect(110, 440, 81, 21))
+        self.avg_txt.setGeometry(QtCore.QRect(130, 440, 81, 21))
         self.avg_txt.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.avg_txt.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.avg_txt.setObjectName("avg_txt")
         self.sys_use_lb = QtWidgets.QLabel(once_run)
-        self.sys_use_lb.setGeometry(QtCore.QRect(220, 440, 81, 21))
+        self.sys_use_lb.setGeometry(QtCore.QRect(260, 440, 81, 21))
         self.sys_use_lb.setObjectName("sys_use_lb")
         self.sys_use_txt = QtWidgets.QTextBrowser(once_run)
-        self.sys_use_txt.setGeometry(QtCore.QRect(300, 440, 81, 21))
+        self.sys_use_txt.setGeometry(QtCore.QRect(350, 440, 81, 21))
         self.sys_use_txt.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.sys_use_txt.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.sys_use_txt.setObjectName("sys_use_txt")
@@ -63,10 +61,10 @@ class Ui_OnceRun(QtWidgets.QDialog):
         self.finish_btn.setGeometry(QtCore.QRect(750, 440, 75, 23))
         self.finish_btn.setObjectName("finish_btn")
         self.clr_cache_btn = QtWidgets.QPushButton(once_run)
-        self.clr_cache_btn.setGeometry(QtCore.QRect(644, 440, 81, 23))
+        self.clr_cache_btn.setGeometry(QtCore.QRect(624, 440, 101, 23))
         self.clr_cache_btn.setObjectName("clr_cache_btn")
         self.once_run_btn = QtWidgets.QPushButton(once_run)
-        self.once_run_btn.setGeometry(QtCore.QRect(540, 440, 75, 23))
+        self.once_run_btn.setGeometry(QtCore.QRect(520, 440, 75, 23))
         self.once_run_btn.setObjectName("once_run_btn")
 
         self.retranslateUi(once_run)
@@ -101,3 +99,4 @@ class Ui_OnceRun(QtWidgets.QDialog):
         self.finish_btn.setText(_translate("once_run", "完成"))
         self.clr_cache_btn.setText(_translate("once_run", "清除缓存数据"))
         self.once_run_btn.setText(_translate("once_run", "运行一次"))
+

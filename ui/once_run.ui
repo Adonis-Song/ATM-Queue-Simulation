@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>943</width>
+    <width>1065</width>
     <height>482</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>922</width>
+     <width>1041</width>
      <height>400</height>
     </rect>
    </property>
@@ -79,9 +79,9 @@
   <widget class="QLabel" name="avg_lb">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>440</y>
-     <width>81</width>
+     <width>111</width>
      <height>21</height>
     </rect>
    </property>
@@ -92,7 +92,7 @@
   <widget class="QTextBrowser" name="avg_txt">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>130</x>
      <y>440</y>
      <width>81</width>
      <height>21</height>
@@ -108,7 +108,7 @@
   <widget class="QLabel" name="sys_use_lb">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>260</x>
      <y>440</y>
      <width>81</width>
      <height>21</height>
@@ -121,7 +121,7 @@
   <widget class="QTextBrowser" name="sys_use_txt">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>350</x>
      <y>440</y>
      <width>81</width>
      <height>21</height>
@@ -163,9 +163,9 @@
   <widget class="QPushButton" name="clr_cache_btn">
    <property name="geometry">
     <rect>
-     <x>644</x>
+     <x>624</x>
      <y>440</y>
-     <width>81</width>
+     <width>101</width>
      <height>23</height>
     </rect>
    </property>
@@ -176,7 +176,7 @@
   <widget class="QPushButton" name="once_run_btn">
    <property name="geometry">
     <rect>
-     <x>540</x>
+     <x>520</x>
      <y>440</y>
      <width>75</width>
      <height>23</height>

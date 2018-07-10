@@ -7,10 +7,7 @@ import sys
 sys.path.append("..")
 from ctrl.repeat_help_control import *
 
-
-
 class RepeatControl(Ui_RepeatRun):
-
     def __init__(self, num_people, max_avg, min_avg, probabilities, parent=None):
         """
         Constructor
@@ -30,6 +27,7 @@ class RepeatControl(Ui_RepeatRun):
         connect button to function
         :return:
         """
+        self.repeatdialog = dialog
         Ui_RepeatRun.setupUi(self, dialog)
         self.Verify.clicked.connect(self.verify)
         self.Reset.clicked.connect(self.reset)
@@ -41,7 +39,6 @@ class RepeatControl(Ui_RepeatRun):
         Show all the result in the two widgets at top-left and bottom
         :return:
         """
-
         # 获取并判断输入框输入值的合法性
         s = self.Repetitions.text()
         flag = re.match(r"\d*$", s)
@@ -53,10 +50,8 @@ class RepeatControl(Ui_RepeatRun):
             self.Repetitions.clear()
             return
         self.repeat_time = int(s)
-
         # 先重置界面
         self.reset()
-
         # 输出平均排队时间表
         self.tableWidget_avg_wait.removeRow(0)
         for every_time in range(self.repeat_time):
@@ -93,7 +88,6 @@ class RepeatControl(Ui_RepeatRun):
         Clear all data and back to initial status
         :return:
         """
-
         # 重置最后一次结果的表
         while self.tableWidget_last_result.rowCount() != 0:
             self.tableWidget_last_result.removeRow(0)
@@ -121,9 +115,8 @@ class RepeatControl(Ui_RepeatRun):
         Close the window and turn off
         :return:
         """
-
         # 直接退出程序
-        exit(0)
+        self.repeatdialog.close()
 
     def help(self):
         """
