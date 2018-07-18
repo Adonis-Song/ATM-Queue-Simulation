@@ -6,6 +6,7 @@ import re
 import sys
 sys.path.append("..")
 from ctrl.repeat_help_control import *
+from model.Model import *
 
 class RepeatControl(Ui_RepeatRun):
     def __init__(self, num_people, max_avg, min_avg, probabilities, parent=None):
@@ -21,6 +22,10 @@ class RepeatControl(Ui_RepeatRun):
         self.min = min_avg
         self.probabilities = probabilities
         self.avg_list = []
+
+    def saveDatabase(self):
+        database = Model()
+        serve
 
     def setupUi(self, dialog):
         """

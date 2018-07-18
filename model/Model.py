@@ -1,8 +1,8 @@
 import pymysql
 import random
 
-
 import numpy as np
+
 
 class Model:
     def __init__(self):
@@ -60,14 +60,14 @@ class Model:
     def result_cal(self, num):
         # 对第一次进行数据添加
         self.wait_time.append(0)
-        self.serve_end_time.append(self.serve_time[0]+self.arrive_time[0])
+        self.serve_end_time.append(self.serve_time[0] + self.arrive_time[0])
         self.interval_time.append(0)
         self.serve_start_time.append(0)
         self.sys_free_time.append(0)
         # 对后面的进行数据添加
         for i in range(1, num):
             wait_time = self.serve_end_time[i - 1] - \
-                self.arrive_time[i]  # 等待时间=上一次的结束时间-到达时间
+                        self.arrive_time[i]  # 等待时间=上一次的结束时间-到达时间
             if wait_time < 0:
                 # 等待时间如果为0，第i个顾客的系统空闲时间就不为0
                 self.sys_free_time.append(wait_time)
@@ -75,23 +75,23 @@ class Model:
             else:
                 self.sys_free_time.append(0)
             self.wait_time.append(wait_time)
-            self.serve_end_time.append(self.arrive_time[i]+self.wait_time[i]+self
+            self.serve_end_time.append(self.arrive_time[i] + self.wait_time[i] + self
                                        .serve_time[i])  # 结束时间=等待时间+到达时间+服务时间
         wait_time = 0
         serve_time = self.serve_time[0]
-        self.spend_time.append(self.wait_time[0]+self.serve_time[0])
+        self.spend_time.append(self.wait_time[0] + self.serve_time[0])
         for i in range(1, num):
             self.serve_start_time.append(
                 self.arrive_time[i] + self.wait_time[i])  # 开始时间=到达时间+等待时间
             self.spend_time.append(
-                self.wait_time[i]+self.serve_time[i])  # 花费时间 = 等待时间+服务时间
+                self.wait_time[i] + self.serve_time[i])  # 花费时间 = 等待时间+服务时间
             self.interval_time.append(
-                self.arrive_time[i] - self.arrive_time[i-1])  # 间隔时间 = 这次到达时间-上次到达时间
+                self.arrive_time[i] - self.arrive_time[i - 1])  # 间隔时间 = 这次到达时间-上次到达时间
             wait_time = wait_time + self.wait_time[i]
             serve_time = serve_time + self.serve_time[i]
         self.avg_wait_time = wait_time / num  # 系统平均等待时间是等待时间之和除以人数
         # 系统总运行时间 = 最后一个人的结束时间 - 第一个人的到达时间
-        all_time = self.serve_end_time[num-1] - self.arrive_time[0]
+        all_time = self.serve_end_time[num - 1] - self.arrive_time[0]
         self.sys_util = serve_time / all_time  # 系统利用率 = 系统服务总时间 / 系统总运行时间
 
     def data_pool(self):
@@ -135,11 +135,11 @@ class Model:
         self.sys_util = 0
 
     def connect_db(self):
-        config = {'host': '127.0.0.1',
+        config = {'host': 'localhost',
                   'port': 3306,
                   'user': 'root',
-                  'password': 'Qaz520..',
-                  'db': 'xxq',
+                  'password': '512666',
+                  'db': 'song',
                   'charset': 'utf8'
                   }
         return pymysql.connect(**config)
@@ -152,9 +152,22 @@ class Model:
         """
         conn = self.connect_db()
         cursor = conn.cursor()
+
+        sql_createDB = """
+                        CREATE TABLE IF NOT EXISTS group_data(
+                        group_id INT UNSIGNED NOT NULL PRIMARY KEY,
+                        avg_wait_time INT UNSIGNED,
+                        sys_util INT UNSIGNED
+                        )ENGINE=InnoDB DEFAULT CHARSET=utf8
+                    """
+
+
+        cursor.execute(sql_createDB)
+        conn.commit()
+
         sql_createDB = """
                         CREATE TABLE IF NOT EXISTS serve(
-                        client_id INT UNSIGNED NOT NULL AUTO_INCREMENT  PRIMARY KEY,
+                        client_id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
                         arrive_time INT UNSIGNED,
                         interval_time INT UNSIGNED,
                         serve_time INT UNSIGNED,
@@ -163,19 +176,14 @@ class Model:
                         serve_end_time INT UNSIGNED,
                         spend_time INT UNSIGNED,
                         sys_free_time INT UNSIGNED,
-                        avg_wait_time INT UNSIGNED,
-                        sys_util INT UNSIGNED,
-                        PRIMARY KEY (client_id)
+                        group_id int UNSIGNED,
+                        FOREIGN KEY (group_id) REFERENCES group_data(group_id)
                         )ENGINE=InnoDB DEFAULT CHARSET=utf8
                         """
-        try:
-            cursor.execute(sql_createDB)
-            conn.commit()
-        except:
-            conn.rollback()
-            print("Exception: create table failed!")
-        conn.close()
+        cursor.execute(sql_createDB)
+        conn.commit()
         cursor.close()
+        conn.close()
 
     def insert_service(self, service):
         """

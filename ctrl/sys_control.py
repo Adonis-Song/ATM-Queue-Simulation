@@ -49,7 +49,7 @@ class Systemdatasetting(Ui_QDialog):
 
         # 数据输入有误
         if result == False or self.model1.data_check(probability_data, time_max, time_min, num_people) == False:
-            reply = QMessageBox.warning(self,  # 使用infomation信息框
+            reply = QMessageBox.warning(self,  # 使用warning信息框
                                         "警告",
                                         "数据输入有误",
                                         QMessageBox.Cancel)
